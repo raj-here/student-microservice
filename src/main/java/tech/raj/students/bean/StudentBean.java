@@ -1,8 +1,7 @@
 package tech.raj.students.bean;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import com.sun.istack.NotNull;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +25,7 @@ public class StudentBean extends BaseBean {
 	private int age;
 
 	public StudentBean(Student student) {
-		super(student.getCreatedDate(), student.getUpdateDate());
+//		super(student.getCreatedDate(), student.getUpdateDate());
 		this.id = student.getId();
 		this.rollNo = student.getRollNo();
 		this.name = student.getName();

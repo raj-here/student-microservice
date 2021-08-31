@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -27,10 +29,12 @@ public class BaseModel {
 	protected String id;
 
 	@Column(name = "created_date")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdDate;
 
-	@Column(name = "updat_date")
-	private Date updateDate;
+	@Column(name = "updated_date")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updatedDate;
 
 	@PrePersist
 	protected void onCreate() {
@@ -39,6 +43,6 @@ public class BaseModel {
 
 	@PreUpdate
 	protected void onUpdate() {
-		updateDate = new Date();
+		updatedDate = new Date();
 	}
 }
